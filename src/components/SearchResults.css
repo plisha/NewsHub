@@ -1,0 +1,50 @@
+.search-results {
+  padding: 20px;
+}
+
+.search-results h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.no-results p:first-child {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.no-results p:last-child {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .search-results {
+    padding: 10px;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-results h2 {
+    font-size: 1.5rem;
+  }
+} 
