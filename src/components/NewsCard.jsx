@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
 import './NewsCard.css';
+import ArticleModal from './ArticleModal';
+import React, { useState } from 'react';
 
 const NewsCard = ({ article }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   // Get appropriate fallback image based on category
   const getFallbackImage = (category) => {
@@ -66,67 +68,76 @@ const NewsCard = ({ article }) => {
   const isCricket = article.category === "Cricket";
   
   return (
-    <div className={`news-card ${isCricket ? 'cricket-news' : ''}`}>
-      <div className="news-card-image">
-        <img 
-          src={article.imageUrl || getFallbackImage(article.category)} 
-          alt={article.title || 'News article'}
-          onError={(e) => {
-            if (!imageError) {
-              setImageError(true);
-              e.target.src = getFallbackImage(article.category);
-            }
-          }}
-        />
-        <div className="news-card-overlay">
-          <button 
-            className={`bookmark-btn ${isBookmarked ? 'bookmarked' : ''}`}
-            onClick={() => setIsBookmarked(!isBookmarked)}
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
-            </svg>
-          </button>
+    <>
+      <div className={`news-card ${isCricket ? 'cricket-news' : ''}`}>
+        <div className="news-card-image">
+          <img 
+            src={article.imageUrl || getFallbackImage(article.category)} 
+            alt={article.title || 'News article'}
+            onError={(e) => {
+              if (!imageError) {
+                setImageError(true);
+                e.target.src = getFallbackImage(article.category);
+              }
+            }}
+          />
+          <div className="news-card-overlay">
+            <button 
+              className={`bookmark-btn ${isBookmarked ? 'bookmarked' : ''}`}
+              onClick={() => setIsBookmarked(!isBookmarked)}
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+              </svg>
+            </button>
+            {article.category && <span className="category-badge">{article.category}</span>}
+          </div>
           {article.date && <span className="time-badge">{getTimeAgo(article.date)}</span>}
-          {article.category && <span className="category-badge">{article.category}</span>}
         </div>
-      </div>
-      
-      <div className="news-card-content">
-        <h3>{article.title || 'Untitled Article'}</h3>
-        <p>{article.summary || 'No summary available'}</p>
-        
-        <div className="news-meta">
-          {article.tags && article.tags.length > 0 && (
-            <div className="tags">
-              {article.tags.map((tag, index) => (
-                <span key={index} className="tag">{tag}</span>
+        <div className="news-card-content">
+          <h3>{article.title || 'Untitled Article'}</h3>
+          <p>{article.summary || 'No summary available'}</p>
+          
+          <div className="news-meta">
+            {article.tags && article.tags.length > 0 && (
+              <div className="tags">
+                {article.tags.map((tag, index) => (
+                  <span key={index} className="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+            {article.author && (
+              <div className="author-info">
+                <span className="author">By {article.author}</span>
+              </div>
+            )}
+          </div>
+          
+          {article.affectedRegions && article.affectedRegions.states && (
+            <div className="affected-regions">
+              <span className="region-label">Regions:</span>
+              {article.affectedRegions.states.map((region, index) => (
+                <span key={index} className="region-tag">{region}</span>
               ))}
             </div>
           )}
-          {article.author && (
-            <div className="author-info">
-              <span className="author">By {article.author}</span>
-            </div>
-          )}
-        </div>
-        
-        {article.affectedRegions && article.affectedRegions.states && (
-          <div className="affected-regions">
-            <span className="region-label">Regions:</span>
-            {article.affectedRegions.states.map((region, index) => (
-              <span key={index} className="region-tag">{region}</span>
-            ))}
-          </div>
-        )}
-        
-        {article.readMore && (
-          <button className="read-more-btn">
-            {article.readMore}
+          
+          <button 
+            className="read-more-btn"
+            onClick={() => setShowModal(true)}
+          >
+            Read More
           </button>
-        )}
+        </div>
       </div>
-    </div>
+
+      {showModal && (
+        <ArticleModal 
+          article={article} 
+          onClose={() => setShowModal(false)}
+        />
+      )}
+    </>
   );
 };
 

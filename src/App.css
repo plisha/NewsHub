@@ -5,6 +5,8 @@
 
 .app {
   min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
 }
@@ -17,11 +19,13 @@
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  background-color: var(--color-background);
 }
 
 .main-content {
   flex: 1;
   min-width: 0;
+  background-color: var(--color-background);
 }
 
 .ad-space {
@@ -60,11 +64,33 @@
   --primary-color: #0f52ba;
   --secondary-color: #0f3460;
   --dark-color: #16213e;
-  --light-color: #f5f7fa;
+  --light-color: #A9B5DF;
   --accent-color: #e94560;
   --text-dark: #1e293b;
-  --text-light: #f8fafc;
+  --text-light: #D4EBF8;
   --border-color: #e0e5eb;
+  /* Header Colors */
+  --header-gradient-start: #1e3a8a;
+  --header-gradient-end: #1e40af;
+  
+  /* Card Colors */
+  --card-gradient-start: #ffffff;
+  --card-gradient-end: #f8fafc;
+  --card-border: #e2e8f0;
+  
+  /* Text Colors */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-light: #f8fafc;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-dark: #0f172a;
+  
+  /* Accent Colors */
+  --accent-blue: #2563eb;
+  --accent-blue-dark: #1d4ed8;
 }
 
 @media (max-width: 1024px) {
@@ -101,5 +127,15 @@
 
   .ad-sidebar {
     background: #1e1e1e;
+  }
+
+  :root {
+    --card-gradient-start: #1e293b;
+    --card-gradient-end: #0f172a;
+    --card-border: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
   }
 } 

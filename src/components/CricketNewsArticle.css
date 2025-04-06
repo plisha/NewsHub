@@ -1,0 +1,247 @@
+.cricket-article {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--color-background, #ffffff);
+}
+
+.cricket-article-header {
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #1a237e, #0d47a1);
+  color: white;
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.category-date {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sports-badge {
+  background: #ff4081;
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.article-date {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+}
+
+.article-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-weight: 500;
+}
+
+.author-role {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.share-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.share-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white;
+}
+
+.share-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.cricket-article-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.main-image-container {
+  position: relative;
+  margin: -5rem -2rem 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.main-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+.image-caption {
+  color: white;
+  font-size: 0.875rem;
+}
+
+.match-highlights {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.score-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.team-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a237e;
+}
+
+.overs {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.versus {
+  font-weight: 600;
+  color: #666;
+  margin: 0 2rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.key-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a237e;
+  margin-bottom: 0.25rem;
+}
+
+.stat-detail {
+  font-size: 0.875rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .article-title {
+    font-size: 2rem;
+  }
+
+  .main-image-container {
+    margin: -3rem -1rem 2rem;
+  }
+
+  .main-image {
+    height: 300px;
+  }
+
+  .score-card {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .versus {
+    margin: 1rem 0;
+  }
+
+  .key-stats {
+    grid-template-columns: 1fr;
+  }
+} 
