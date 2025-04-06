@@ -2,24 +2,28 @@
   /* Modern Light Theme */
   --color-background: #f8fafc;
   --color-surface: #ffffff;
-  --color-primary: #4f46e5;
+  --color-primary: #6366f1;
   --color-primary-light: #818cf8;
   --color-secondary: #3b82f6;
   --color-accent: #8b5cf6;
-  --color-text: #1e293b;
+  --color-text: #334155;
   --color-text-secondary: #64748b;
+  --color-text-tertiary: #94a3b8;
+  --color-text-heading: #1e293b;
+  --color-text-link: #3b82f6;
+  --color-text-muted: #94a3b8;
   --color-border: #e2e8f0;
-  --color-hover: rgba(79, 70, 229, 0.1);
+  --color-hover: rgba(99, 102, 241, 0.1);
   --color-shadow: rgba(0, 0, 0, 0.1);
   
   /* Header Colors - Light */
   --header-bg: rgba(255, 255, 255, 0.95);
-  --header-text: #1e293b;
+  --header-text: #334155;
   --header-border: #e2e8f0;
-  --header-button: #4f46e5;
+  --header-button: #6366f1;
   --header-button-text: #ffffff;
   --header-search-bg: #f1f5f9;
-  --header-search-text: #1e293b;
+  --header-search-text: #334155;
   --header-nav-active: #ede9fe;
   
   /* Card Colors - Light */
@@ -42,8 +46,8 @@
   font-weight: 400;
 
   color-scheme: light;
-  color: #333;
-  background-color: #f5f5f5;
+  color: var(--color-text);
+  background-color: var(--color-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -61,6 +65,10 @@
   --color-accent: #a78bfa;
   --color-text: #f1f5f9;
   --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #64748b;
+  --color-text-heading: #f8fafc;
+  --color-text-link: #60a5fa;
+  --color-text-muted: #64748b;
   --color-border: #334155;
   --color-hover: rgba(129, 140, 248, 0.1);
   --color-shadow: rgba(0, 0, 0, 0.2);

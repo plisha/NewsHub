@@ -1,11 +1,22 @@
 import './NewsCard.css';
 import ArticleModal from './ArticleModal';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const NewsCard = ({ article }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Update isMobile state when window is resized
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Get appropriate fallback image based on category
   const getFallbackImage = (category) => {
@@ -111,6 +122,7 @@ const NewsCard = ({ article }) => {
                 <span className="author">By {article.author}</span>
               </div>
             )}
+            <span className="article-count">{article.tags ? article.tags.length : 0} Tags</span>
           </div>
           
           {article.affectedRegions && article.affectedRegions.states && (
@@ -127,6 +139,10 @@ const NewsCard = ({ article }) => {
             onClick={() => setShowModal(true)}
           >
             Read More
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </button>
         </div>
       </div>
@@ -135,6 +151,7 @@ const NewsCard = ({ article }) => {
         <ArticleModal 
           article={article} 
           onClose={() => setShowModal(false)}
+          isMobile={isMobile}
         />
       )}
     </>

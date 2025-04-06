@@ -7,8 +7,6 @@ import SearchResults from './components/SearchResults'
 import Advertisement from './components/Advertisement'
 import { getAllNews } from './data/newsData'
 import ChatBot from './components/ChatBot'
-import TopicNews from './components/TopicNews'
-import { newsTopics } from './data/newsData'
 import './App.css'
 import ThemeToggle from './components/ThemeToggle'
 
@@ -68,10 +66,6 @@ function App() {
       <div className="app">
         <Header onSearch={handleSearch} />
         <div className="main-layout">
-          {/* <aside className="ad-space left">
-            <Advertisement position="left" />
-          </aside> */}
-          
           <main className="main-content">
             <Routes>
               <Route 
@@ -83,14 +77,10 @@ function App() {
                   />
                 } 
               />
-              <Route path="/topic/:topic" element={<TopicNews newsData={newsTopics} />} />
+              <Route path="/topic/:topicId" element={<TopicPage />} />
               <Route path="/" element={<TopicPage />} />
             </Routes>
           </main>
-          
-          {/* <aside className="ad-space right">
-            <Advertisement position="right" />
-          </aside> */}
         </div>
         <Footer />
         <ChatBot />
